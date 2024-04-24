@@ -18,7 +18,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
           placeholder="Tìm kiếm sản phẩm..."
           class="w-full p-3 text-lg outline-none border-b-[3px] border-b-blue-500"
         />
-        <button class="border-2 border-black px-4 py-1 rounded-lg">
+        <button class="border-2 border-black px-4 py-1 !rounded-lg">
           <fa-icon [icon]="faMagnifyingGlass" class="text-xl"></fa-icon>
         </button>
       </div>

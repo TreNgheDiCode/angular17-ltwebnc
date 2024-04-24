@@ -1,0 +1,36 @@
+<div
+  style="background-image: linear-gradient(-13deg, #ffffff 30%, #274d5a 20%)"
+  class="py-14"
+>
+  <p-carousel
+    [value]="products"
+    [numVisible]="1"
+    [circular]="true"
+    autoplayInterval="3000"
+  >
+    <ng-template let-product pTemplate="item">
+      <div
+        class="h-full border-1 rounded-lg container mx-10 flex items-center justify-between"
+      >
+        <div class="w-[60vw] relative h-full items-center justify-center flex">
+          <img
+            [ngSrc]="product.image"
+            [alt]="product.label"
+            width="350"
+            height="500"
+            priority
+          />
+        </div>
+        <div class="flex flex-col gap-6 w-[40vw]">
+          <h1 class="font-bold text-4xl text-white">{{ product.label }}</h1>
+          <p class="text-white font-medium tracking-wider">
+            {{ product.description }}
+          </p>
+          <p-button label="Mua ngay">
+            <fa-icon [icon]="cartShoppingIcon" class="mr-2"></fa-icon>
+          </p-button>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
