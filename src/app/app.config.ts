@@ -12,6 +12,10 @@ import { provideRouter, withViewTransitions } from '@angular/router';
 import { routes } from './app.routes';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 export const FIREBASE_OPTIONS = new InjectionToken<string>(
@@ -22,6 +26,8 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withViewTransitions()),
     importProvidersFrom([
+      BrowserAnimationsModule,
+      NoopAnimationsModule,
       AngularFireModule.initializeApp(environment.firebaseConfig),
       AngularFirestoreModule,
       provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),

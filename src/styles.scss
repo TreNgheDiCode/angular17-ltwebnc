@@ -18,3 +18,26 @@ body {
     height: 100%;
   }
 }
+
+.p-inputtext {
+  background: transparent !important;
+  width: 100% !important;
+  color: white !important;
+}
+
+.p-float-label > label {
+  color: white !important;
+}
+
+.p-button {
+  margin-top: 2rem !important;
+  width: 100%;
+  background: transparent;
+
+  &.p-ripple:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+.p-inputwrapper > .p-password {
+  width: 100% !important;
+}
