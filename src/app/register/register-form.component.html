@@ -1,0 +1,96 @@
+<div
+  class="w-[400px] rounded-xl p-6 shadow-custom border-2 border-[#fffdfe80] bg-transparent backdrop-blur-xl space-y-4"
+>
+  <h1 class="text-white text-3xl font-bold text-center uppercase">Đăng ký</h1>
+  <form
+    class="space-y-6"
+    [formGroup]="registerForm"
+    (ngSubmit)="handleSubmit()"
+  >
+    <span class="p-float-label">
+      <input
+        aria-describedby="name-help"
+        pInputText
+        id="Name"
+        class="text-white"
+        formControlName="name"
+      />
+      <label for="Name">Tên khách hàng</label>
+    </span>
+    @if (registerForm.controls.name.errors?.['required']) {
+    <small id="password-help" class="text-red-500"
+      >Tên khách hàng không được để trống.</small
+    >
+    }
+    <span class="p-float-label">
+      <p-inputMask
+        mask="9999-999-999"
+        placeholder="0123 456 789"
+        formControlName="phone"
+      ></p-inputMask>
+      <label for="phone">Số điện thoại</label>
+    </span>
+    @if (registerForm.controls.phone.errors?.['required']) {
+    <small id="password-help" class="text-red-500"
+      >Số điện thoại không được để trống.</small
+    >
+    }
+    <span class="p-float-label">
+      <input
+        aria-describedby="email-help"
+        pInputText
+        id="Email"
+        class="text-white"
+        formControlName="email"
+      />
+      <label for="Email">Email</label>
+    </span>
+    @if (registerForm.controls.email.errors?.['required']) {
+    <small id="email-help" class="text-red-500"
+      >Email không được để trống.</small
+    >
+    } @else if (registerForm.controls.email.errors?.['email']) {
+    <small id="email-help" class="text-red-500"
+      >Email không đúng định dạng.</small
+    >
+    }
+    <span class="p-float-label">
+      <p-password
+        promptLabel="Vui lòng nhập mật khẩu"
+        weakLabel="Độ mạnh: Yếu"
+        mediumLabel="Độ mạnh: Trung bình"
+        strongLabel="Độ mạnh: Tốt"
+        formControlName="password"
+        [toggleMask]="true"
+      >
+        <ng-template pTemplate="footer">
+          <p-divider></p-divider>
+          <p class="mt-2">Gợi ý cho mật khẩu</p>
+          <ul class="pl-2 list-disc list-inside ml-2 mt-0 space-y-1">
+            <li>Ít nhất một ký tự thường</li>
+            <li>Ít nhất một ký tự in hoa</li>
+            <li>Ít nhất một ký tự sớ</li>
+            <li>Tối thiểu 8 ký tự</li>
+          </ul>
+        </ng-template></p-password
+      >
+      <label for="username">Mật khẩu</label>
+    </span>
+    @if (registerForm.controls.password.errors?.['required']) {
+    <small id="password-help" class="text-red-500"
+      >Mật khẩu không được để trống.</small
+    >
+    }
+    <div class="space-y-4">
+      <p-button label="Đăng nhập" type="submit"></p-button>
+      <p class="text-white text-base text-center">
+        Bạn đã có tài khoản?
+        <a
+          routerLink="/login"
+          class="hover:text-blue-500 hover:underline hover:font-bold"
+          >Đăng ký</a
+        >
+      </p>
+    </div>
+  </form>
+</div>
